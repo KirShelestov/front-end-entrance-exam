@@ -10,5 +10,23 @@ function adjustContactCardMargin() {
         contact.style.marginTop = available > 0 ? available + "px" : "18px";
     }
 }
-window.addEventListener("DOMContentLoaded", adjustContactCardMargin);
-window.addEventListener("resize", adjustContactCardMargin);
+
+function syncToolsExperienceHeight() {
+    const tools = document.querySelector(".sidebar");
+    const experience = document.querySelector(".experience");
+    if (tools && experience) {
+        tools.style.minHeight = "";
+        experience.style.minHeight = "";
+        const maxHeight = Math.max(tools.offsetHeight, experience.offsetHeight);
+        tools.style.minHeight = maxHeight + "px";
+        experience.style.minHeight = maxHeight + "px";
+    }
+}
+
+function onResizeOrLoad() {
+    adjustContactCardMargin();
+    syncToolsExperienceHeight();
+}
+
+window.addEventListener("DOMContentLoaded", onResizeOrLoad);
+window.addEventListener("resize", onResizeOrLoad);
