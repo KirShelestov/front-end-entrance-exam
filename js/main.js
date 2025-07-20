@@ -22,7 +22,6 @@ function syncToolsExperienceHeight() {
         const maxHeight = Math.max(toolsHeight, expHeight);
         const diff = Math.abs(toolsHeight - expHeight);
 
-        // Если разница больше 40px, делаем одинаковую высоту
         if (diff > 40) {
             tools.style.height = maxHeight + "px";
             experience.style.height = maxHeight + "px";
@@ -72,3 +71,17 @@ function onResizeOrLoad() {
 
 window.addEventListener("DOMContentLoaded", onResizeOrLoad);
 window.addEventListener("resize", onResizeOrLoad);
+
+document.querySelector(".download-btn").addEventListener("click", function () {
+    const element = document.querySelector(".container");
+    html2canvas(element).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new window.jspdf.jsPDF({
+            orientation: "portrait",
+            unit: "px",
+            format: [canvas.width, canvas.height],
+        });
+        pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+        pdf.save("resume.pdf");
+    });
+});
