@@ -9,7 +9,6 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -172,20 +171,36 @@ body {
 .education-interests {
     display: flex;
     gap: 32px;
+    align-items: stretch;
 }
+
 .education,
 .interests {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.interests-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.interests-section .interest-tags {
+    margin-bottom: 16px;
 }
 
 .edu-card {
-    background: #f6f6f6;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px;
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    min-width: 0;
 }
 .edu-card .year {
     font-weight: bold;
@@ -197,31 +212,48 @@ body {
     font-size: 0.9em;
     margin: 4px 0;
 }
+.interests-section {
+    background: #f2f2f2;
+    border-radius: 28px;
+    padding: 32px;
+    width: 100%;
+    margin-bottom: 18px;
+}
 
 .interest-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 18px;
     margin-bottom: 16px;
 }
+
 .interest-tags span {
-    background: #f6f6f6;
-    border-radius: 8px;
-    padding: 4px 12px;
-    font-size: 0.95em;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 1.15em;
+    font-weight: 500;
+    color: #222;
+    text-align: left;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 .contact-card {
+    min-height: 240px;
+    text-align: left;
+    font-size: 2em;
     background: #111;
     color: #fff;
     border-radius: 12px;
-    padding: 16px;
-    margin-top: 16px;
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
 }
 
 .contact-info {
-    margin-top: 8px;
-    font-size: 0.95em;
+    margin-top: 16px;
+    font-size: 1.1em;
     color: #aaa;
 }
 
@@ -301,4 +333,82 @@ button:focus-visible {
 .profile-info span {
     color: #888;
     font-size: 1.2em;
+}
+
+.education-section {
+    background: #f2f2f2;
+    border-radius: 28px;
+    padding: 32px;
+    margin-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.education-section h3 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.education-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.edu-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.edu-card-green {
+    background: #27e97c;
+    color: #fff;
+    position: relative;
+}
+
+.edu-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edu-year {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.edu-fav {
+    font-size: 1.3em;
+}
+
+.edu-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.edu-tags {
+    font-size: 1em;
+    color: #27e97c;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    word-break: break-word;
+}
+
+.edu-card-green .edu-tags {
+    color: #fff;
+}
+
+.edu-school {
+    font-size: 1em;
+    color: inherit;
+    margin-top: 8px;
 }
