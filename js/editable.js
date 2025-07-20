@@ -4,28 +4,33 @@ function getUniqueKey(el, idx) {
 }
 
 function setupEditable(el, idx) {
-    if (el.classList.contains("most-recent")) return;
+    if (el.classList.contains('most-recent')) return;
 
-    el.addEventListener("dblclick", function () {
-        if (el.querySelector("input")) return;
+    el.addEventListener('dblclick', function () {
+        if (el.querySelector('input')) return;
         const key = el.dataset.key || getUniqueKey(el, idx);
         const value = el.textContent.trim();
-        const input = document.createElement("input");
-        input.type = "text";
+        const input = document.createElement('input');
+        input.type = 'text';
         input.value = value;
-        input.style.width = "100%";
-        el.textContent = "";
+        input.className = 'editable-input';
+        input.style.width = '100%';
+        el.textContent = '';
         el.appendChild(input);
         input.focus();
 
         function save() {
             el.textContent = input.value;
-            localStorage.setItem("editable-" + key, input.value);
+            localStorage.setItem('editable-' + key, input.value);
+            el.classList.add('editable-highlight');
+            setTimeout(() => {
+                el.classList.remove('editable-highlight');
+            }, 900); // плавное исчезновение подсветки
         }
 
-        input.addEventListener("blur", save);
-        input.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") input.blur();
+        input.addEventListener('blur', save);
+        input.addEventListener('keydown', e => {
+            if (e.key === 'Enter') input.blur();
         });
     });
 }

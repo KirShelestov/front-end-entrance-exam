@@ -615,3 +615,25 @@ button:focus-visible {
     position: relative;
     overflow: hidden;
 }
+.editable-input {
+    border: none;
+    outline: none;
+    background: white;
+    font: inherit;
+    width: 100%;
+}
+
+@keyframes blink-caret {
+    0%,
+    100% {
+        border-right: 1.5px solid #222;
+    }
+    50% {
+        border-right: 1.5px solid transparent;
+    }
+}
+
+.editable-highlight {
+    background: white;
+    transition: background 0.8s;
+}
