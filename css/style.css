@@ -203,6 +203,9 @@ body {
     display: flex;
     gap: 32px;
     align-items: stretch;
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
 }
 
 .education,
@@ -247,7 +250,7 @@ body {
     background: #f2f2f2;
     border-radius: 28px;
     padding: 32px;
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 18px;
 }
 
@@ -273,7 +276,7 @@ body {
 .contact-card {
     min-height: 240px;
     text-align: left;
-    font-size: 2em;
+    /* font-size: 2em; */
     background: #111;
     color: #fff;
     border-radius: 12px;
@@ -531,4 +534,61 @@ button:focus-visible {
 }
 .main-content {
     padding-top: 0;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1320px) {
+    .header-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .languages {
+        width: 100%;
+        margin-top: 24px;
+        margin-bottom: 32px;
+    }
+    .profile-card {
+        margin-bottom: 0;
+    }
+}
+.languages {
+    flex: 1;
+    min-width: 0;
+}
+.education-interests > * {
+    min-width: 0;
+}
+@media (max-width: 700px) {
+    .tools-experience-row,
+    .education-interests {
+        min-width: 0;
+        box-sizing: border-box;
+        flex-direction: column;
+        display: flex;
+    }
+    .education-interests > * {
+        min-width: 0;
+    }
+    .container {
+        width: 140%;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .experience {
+        width: auto;
+    }
+    .profile-info {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .profile-info > * {
+        font-size: 1.2em;
+    }
 }

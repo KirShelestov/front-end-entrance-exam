@@ -15,11 +15,18 @@ function syncToolsExperienceHeight() {
     const tools = document.querySelector(".sidebar");
     const experience = document.querySelector(".experience");
     if (tools && experience) {
-        tools.style.minHeight = "";
-        experience.style.minHeight = "";
-        const maxHeight = Math.max(tools.offsetHeight, experience.offsetHeight);
-        tools.style.minHeight = maxHeight + "px";
-        experience.style.minHeight = maxHeight + "px";
+        tools.style.height = "";
+        experience.style.height = "";
+        const toolsHeight = tools.offsetHeight;
+        const expHeight = experience.offsetHeight;
+        const maxHeight = Math.max(toolsHeight, expHeight);
+        const diff = Math.abs(toolsHeight - expHeight);
+
+        // Если разница больше 40px, делаем одинаковую высоту
+        if (diff > 40) {
+            tools.style.height = maxHeight + "px";
+            experience.style.height = maxHeight + "px";
+        }
     }
 }
 
