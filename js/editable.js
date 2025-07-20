@@ -110,3 +110,22 @@ window.addEventListener("DOMContentLoaded", () => {
     makeEditable();
     restoreEditable();
 });
+
+document.addEventListener("click", function (e) {
+    const target = e.target.closest(".ripple-zone");
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(target.offsetWidth, target.offsetHeight);
+    const ripple = document.createElement("span");
+    ripple.className = "material-ripple";
+    ripple.style.width = ripple.style.height = size + "px";
+    ripple.style.left = e.clientX - rect.left - size / 2 + "px";
+    ripple.style.top = e.clientY - rect.top - size / 2 + "px";
+
+    target.appendChild(ripple);
+
+    ripple.addEventListener("animationend", () => {
+        ripple.remove();
+    });
+});
