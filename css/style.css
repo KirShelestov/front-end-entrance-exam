@@ -71,8 +71,8 @@ body {
     margin-bottom: 0;
 }
 .profile-photo img {
-    width: 124px;
-    height: 124px;
+    /* width: 124px;
+    height: 124px; */
     border-radius: 12px;
     object-fit: cover;
 }
@@ -370,11 +370,11 @@ button:focus-visible {
     padding: 32px;
     width: 100%;
     box-sizing: border-box;
+
+    align-items: stretch;
 }
 
 .profile-card {
-    background: #f2f2f2;
-    border-radius: 24px;
     padding: 32px;
     display: flex;
     flex-direction: row;
@@ -391,6 +391,9 @@ button:focus-visible {
 }
 
 .profile-info {
+    padding: 32px;
+    background: #f2f2f2;
+    border-radius: 24px;
     margin-left: 32px;
     display: flex;
     flex-direction: column;
@@ -508,4 +511,24 @@ button:focus-visible {
     align-items: center;
     gap: 10px;
     justify-content: center;
+}
+.profile-image,
+.profile-info,
+.languages {
+    padding: 32px;
+    box-sizing: border-box;
+}
+.header-row {
+    display: flex;
+    align-items: center;
+}
+.profile-image,
+.profile-card {
+    padding-left: 0;
+}
+.header-row {
+    padding-bottom: 0;
+}
+.main-content {
+    padding-top: 0;
 }
