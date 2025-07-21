@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+/* global html2canvas */
 function adjustContactCardMargin() {
     const education = document.querySelector(".education-section");
     const interests = document.querySelector(".interests-section");
