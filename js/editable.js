@@ -10,7 +10,7 @@ function setupEditable(el, idx) {
     el.addEventListener("dblclick", function () {
         if (el.querySelector("input")) return;
         const key = el.dataset.key || getUniqueKey(el, idx);
-        const value = el.textContent.trim();
+        const value = el.textContent.replace(/\s+/g, " ").trim();
         const input = document.createElement("input");
         input.type = "text";
         input.value = value;
