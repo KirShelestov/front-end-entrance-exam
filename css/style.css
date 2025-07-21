@@ -238,10 +238,26 @@ body {
     box-sizing: border-box;
     display: block;
 }
+
 .contact-card p {
     position: absolute;
     top: 1vh;
     font-size: 2.3em;
+}
+@media (max-width: 1300px) {
+    .contact-card p {
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 900px) {
+    .contact-card p {
+        font-size: 1.3em;
+    }
+}
+@media (max-width: 700px) {
+    .contact-card p {
+        font-size: 1.1em;
+    }
 }
 .contact-info {
     position: absolute;
