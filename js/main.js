@@ -87,3 +87,17 @@ document.querySelector(".download-btn").addEventListener("click", function () {
         pdf.save("resume.pdf");
     });
 });
+function syncToolsListWidth() {
+    const labels = Array.from(document.querySelectorAll(".tools-label"));
+    if (!labels.length) return;
+    const maxLabelWidth = Math.max(...labels.map((l) => l.offsetWidth));
+    const targetWidth = Math.round(maxLabelWidth * 1.15) + "px";
+    document.querySelectorAll(".tools-list").forEach((list) => {
+        list.style.width = targetWidth;
+        list.style.minWidth = targetWidth;
+        list.style.maxWidth = targetWidth;
+    });
+}
+
+window.addEventListener("DOMContentLoaded", syncToolsListWidth);
+window.addEventListener("resize", syncToolsListWidth);
