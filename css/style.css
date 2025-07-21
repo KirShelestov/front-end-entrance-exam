@@ -251,6 +251,24 @@ body {
     color: #aaa;
 }
 
+.experience {
+    background: #f0f0f0;
+    border-radius: 28px;
+    padding: 32px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.experience h3 {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+.experience h2 {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
 .exp-card {
     background: #fff;
     border-radius: 24px;
